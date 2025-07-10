@@ -12,8 +12,12 @@ spec:
       labels:
         app: node-app
     spec:
+    # created this secret using kubectl create secret docker-registry acr-secret
+      # imagePullSecrets:
+      # - name: acr-secret    
       containers:
         - name: node-app
-          image: surajpatil7438/node-api:latest
+          # image: surajpatil7438/node-api:latest
+          image: acrdevopsprojectswithterraform.azurecr.io/node-api:1.1
           ports:
             - containerPort: 3000
