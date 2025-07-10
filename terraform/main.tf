@@ -27,9 +27,14 @@ resource "kubernetes_deployment" "node_app" {
       }
 
       spec {
+
+        image_pull_secrets {
+          name = "acr-secret"
+        }
+
         container {
           name  = "node-app"
-          image = "surajpatil7438/node-api:latest"
+          image = "acrdevopsprojectswithterraform.azurecr.io/node-api:1.1"
 
           port {
             container_port = 3000
